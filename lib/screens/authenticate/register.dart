@@ -34,7 +34,7 @@ class _RegisterState extends State<Register> {
       child: Scaffold(
         // resizeToAvoidBottomPadding: false,
         //key: _formKey,
-        backgroundColor: Colors.blue[50], //////
+        backgroundColor: Colors.green[50], //////
         body: Container(
             constraints: BoxConstraints.expand(),
             decoration: BoxDecoration(
@@ -94,7 +94,7 @@ class _RegisterState extends State<Register> {
                                   "SignUp",
                                   style: TextStyle(
                                       fontFamily: 'PlayfairDisplay',
-                                      color: Colors.blueAccent,
+                                      color: Colors.green,
                                       fontSize: 34,
                                       fontWeight: FontWeight.w900),
                                 ),
@@ -152,8 +152,8 @@ class _RegisterState extends State<Register> {
                                           ? Text('Main Area')
                                           : Text(
                                               dropdownValue,
-                                              style:
-                                                  TextStyle(color: Colors.blue),
+                                              style: TextStyle(
+                                                  color: Colors.greenAccent),
                                             ),
                                       value: dropdownValue,
                                       onChanged: (String newValue) {
@@ -212,7 +212,7 @@ class _RegisterState extends State<Register> {
                                         borderRadius:
                                             BorderRadius.circular(23.0),
                                         side: BorderSide(color: Colors.white)),
-                                    color: Colors.blueAccent,
+                                    color: Colors.green,
                                     textColor: Colors.white,
                                     padding: EdgeInsets.all(8.0),
                                     onPressed: () {
@@ -258,7 +258,7 @@ class _RegisterState extends State<Register> {
                                                 style: TextStyle(
                                                     decoration: TextDecoration
                                                         .underline,
-                                                    color: Colors.blue)),
+                                                    color: Colors.green)),
                                             onTap: () {
                                               // do what you need to do when "Click here" gets clicked
                                               widget.toogleView();

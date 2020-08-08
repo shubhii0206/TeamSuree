@@ -70,6 +70,15 @@ flutter:
       fonts:
         - asset: fonts/PlayfairDisplay-Black.ttf
           weight: 900
+
+    - family: Lora
+      fonts:
+        - asset: fonts/Lora-Regular.ttf
+          weight: 900
+    # - family: Sriracha
+    #   fonts:
+    #     - asset: fonts/Sriracha-Regular.ttf
+    #       weight: 900
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

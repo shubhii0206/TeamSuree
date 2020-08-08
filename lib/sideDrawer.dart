@@ -24,7 +24,7 @@ class _SideDrawerState extends State<SideDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Color.fromRGBO(223, 248, 230, 1),
+        color: Colors.green[50],
 // ==========Whole Drawer====================
         child: ListView(
           children: <Widget>[

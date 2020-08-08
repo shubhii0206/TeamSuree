@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hac/models/user.dart';
+import 'package:hac/screens/home/new_contractor.dart';
 import 'package:hac/services/auth.dart';
 import 'package:hac/screens/profilepage/profile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -68,14 +69,14 @@ class _DisplayState extends State<Display> {
           elevation: 0.0,
         ),
         body: Card(
-          margin: EdgeInsets.all(20),
+          margin: EdgeInsets.all(30),
           child: Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
+              height: 600,
+              width: 400,
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
               child: Form(
                 child: Column(children: <Widget>[
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   TextFormField(
                     // key: widget.key,
                     //keyboardType: ,
@@ -100,7 +101,7 @@ class _DisplayState extends State<Display> {
                           vertical: 13.0, horizontal: 20.0),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   TextFormField(
                     // key: widget.key,
                     //keyboardType: ,
@@ -126,7 +127,7 @@ class _DisplayState extends State<Display> {
                           vertical: 13.0, horizontal: 20.0),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   TextFormField(
                     // key: widget.key,
                     //keyboardType: ,
@@ -152,7 +153,7 @@ class _DisplayState extends State<Display> {
                           vertical: 13.0, horizontal: 20.0),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   TextFormField(
                     // key: widget.key,
                     //keyboardType: ,
@@ -178,7 +179,7 @@ class _DisplayState extends State<Display> {
                           vertical: 13.0, horizontal: 20.0),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   TextFormField(
                     // key: widget.key,
                     //keyboardType: ,
@@ -204,7 +205,7 @@ class _DisplayState extends State<Display> {
                           vertical: 13.0, horizontal: 20.0),
                     ),
                   ),
-
+                  SizedBox(height: 30),
                   // CheckboxListTile(
                   //     title: Text("Work done?"),
                   //     value: _stat,
@@ -239,46 +240,71 @@ class _DisplayState extends State<Display> {
                       });
                     },
                   ),
-                  FlatButton(
-                    child: Text("Save Changes"),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(23.0),
-                        side: BorderSide(color: Colors.white)),
-                    color: Color(0xff57c89f),
-                    textColor: Colors.white,
-                    padding: EdgeInsets.all(8.0),
-                    onPressed: () async {
-                      firestoreInstance
-                          .collection("Work")
-                          .document(widget.id)
-                          .setData({
-                        'Type': _typeController.text,
-                        'Number of Workers': _numberController.text,
-                        'Number of days': _daysController.text,
-                        'Proposed Amount': _moneyController.text,
-                        'Work Location': _locationController.text,
-                      }, merge: true).then((_) {
-                        print('success');
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return success;
-                          },
-                        );
-                        Timer(
-                            Duration(seconds: 1),
-                            () => {
-                                  Navigator.of(context).pop(),
-                                  Navigator.of(context).pop(),
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (BuildContext context) =>
-                                              Home()))
-                                });
-                      });
+                  SizedBox(height: 30),
+                  RaisedButton(
+                    child: Text('Contractors'),
+                    color: Colors.green,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                ContractWork(work: widget.work, id: widget.id)),
+                      );
                     },
                   ),
+
+                  Container(
+                    height: 60,
+                    child: RaisedButton(
+                      child: Text("Save Changes"),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(23.0),
+                          side: BorderSide(color: Colors.white)),
+                      color: Color(0xff57c89f),
+                      disabledColor: Colors.grey[50],
+                      splashColor: Colors.lightGreenAccent,
+                      textColor: Colors.white,
+                      padding: EdgeInsets.all(8.0),
+                      onPressed: () async {
+                        firestoreInstance
+                            .collection("Work")
+                            .document(widget.id)
+                            .setData({
+                          'Type': _typeController.text,
+                          'Number of Workers': _numberController.text,
+                          'Number of days': _daysController.text,
+                          'Proposed Amount': _moneyController.text,
+                          'Work Location': _locationController.text,
+                        }, merge: true).then((_) {
+                          print('success');
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return success;
+                            },
+                          );
+                          Timer(
+                              Duration(seconds: 1),
+                              () => {
+                                    Navigator.of(context).pop(),
+                                    Navigator.of(context).pop(),
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                Home()))
+                                  });
+                        });
+                      },
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  FlatButton(
+                      child: Text("Back"),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      })
                 ]),
               )),
         ));

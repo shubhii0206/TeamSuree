@@ -43,9 +43,34 @@ class _HomeState extends State<Home> {
                   height: 100,
                   child: ListTile(
                     // Access the fields as defined in FireStore
-                    title: Text('Type of work: ${work.data['Type']}'),
+                    title: Row(
+                      children: <Widget>[
+                        Icon(Icons.build),
+                        SizedBox(
+                          width:
+                              5, // here put the desired space between the icon and the text
+                        ),
+                        Text(
+                          'Type of work: ${work.data['Type']}',
+                          style: TextStyle(
+                            fontFamily: 'Lora',
+                            fontStyle: FontStyle.normal,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0,
+                          ), // here we could use a column widget if we want to add a subtitle
+                        ),
+                        SizedBox(height: 10),
+                      ],
+                    ),
                     subtitle: Text(
-                        'Proposed Amount: ${work.data['Proposed Amount']}'),
+                      'Proposed Amount: ${work.data['Proposed Amount']}',
+                      style: TextStyle(
+                        fontFamily: 'Lora',
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0,
+                      ),
+                    ),
                     onTap: () {
                       Navigator.push(
                         context,

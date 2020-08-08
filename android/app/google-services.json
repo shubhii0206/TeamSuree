@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "78906630884",
+    "firebase_url": "https://shramik-635c1.firebaseio.com",
+    "project_id": "shramik-635c1",
+    "storage_bucket": "shramik-635c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78906630884:android:6ca5cc15389fedd64842f1",
+        "android_client_info": {
+          "package_name": "com.example.hac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78906630884-mtqcecdcgr5cavpt112cvot6o293hphm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbnPM65oeVYUpm4VLWdgZoCx4Na9t7ms4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78906630884-mtqcecdcgr5cavpt112cvot6o293hphm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

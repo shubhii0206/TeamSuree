@@ -48,8 +48,7 @@ class SignIn extends StatelessWidget {
 //                    fit: BoxFit.cover,
 //                  ),
 //                ),
-                child: Positioned(
-                  top: 60,
+                child: Container(
                   child: Stack(
                     children: <Widget>[
                       Container(
@@ -123,14 +122,14 @@ class SignIn extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 SizedBox(
-                                  height: 65,
+                                  height: 45,
                                 ),
                                 Text(
                                   "Login",
                                   style: TextStyle(
                                       fontFamily: 'PlayfairDisplay',
                                       color: Colors.blueAccent,
-                                      fontSize: 54,
+                                      fontSize: 44,
                                       fontWeight: FontWeight.w900),
                                 ),
                                 SizedBox(

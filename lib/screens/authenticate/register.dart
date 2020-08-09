@@ -51,7 +51,7 @@ class _RegisterState extends State<Register> {
                   children: <Widget>[
                     Positioned(
                       left: ((MediaQuery.of(context).size.width) - 300) / 2,
-                      top: 260,
+                      top: 130,
                       child: FadeAnimation(
                         1.5,
                         Container(

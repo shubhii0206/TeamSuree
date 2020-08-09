@@ -134,7 +134,7 @@ class _HomeState extends State<Home> {
               phoneno: _phoneno,
             ),
             appBar: AppBar(
-              title: Text(_name + " Home"),
+              title: Text("Namaste " + _name),
               backgroundColor: Colors.green[400],
               elevation: 0.0,
               actions: <Widget>[
@@ -163,7 +163,7 @@ class _HomeState extends State<Home> {
                       builder: buildWorkList,
                       future: Firestore.instance
                           .collection('Work')
-                          .where("Hirer id", isEqualTo: user.uid)
+                          .where("Hirer id", isEqualTo: _uid)
                           .getDocuments()),
                 ),
                 SizedBox(height: 10),

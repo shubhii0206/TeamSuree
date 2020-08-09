@@ -28,15 +28,22 @@ class _SideDrawerState extends State<SideDrawer> {
 // ==========Whole Drawer====================
         child: ListView(
           children: <Widget>[
+            SizedBox(height: 10),
 // ============== Header =======================
             new UserAccountsDrawerHeader(
               accountName: Text(
                 widget.name,
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                  fontFamily: 'Lora',
+                  fontStyle: FontStyle.normal,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 30.0,
+                ),
               ),
               accountEmail: Text(
                 widget.phoneno,
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.black, fontSize: 20),
               ),
               currentAccountPicture: GestureDetector(
                 child: CircleAvatar(
@@ -44,19 +51,27 @@ class _SideDrawerState extends State<SideDrawer> {
                   child: Icon(
                     Icons.person,
                     color: Colors.white,
-                    size: 55.0,
+                    size: 45.0,
                   ),
                 ),
               ),
               decoration: BoxDecoration(
-                color: Color.fromRGBO(87, 200, 159, 1),
+                color: Colors.green[400],
               ),
             ),
 
 // ================= Drawer Options ======================
 
             ListTile(
-              title: Text("Profile"),
+              title: Text(
+                "Profile",
+                style: TextStyle(
+                  fontFamily: 'Lora',
+                  fontStyle: FontStyle.normal,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20.0,
+                ),
+              ),
               trailing: Icon(Icons.person),
               onTap: () {
                 print('Inside item1');
@@ -86,10 +101,10 @@ class _SideDrawerState extends State<SideDrawer> {
                 child: FlatButton(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
-                      side: BorderSide(
-                          width: 2.0, color: Color.fromRGBO(102, 102, 102, 1)),
+                      side: BorderSide(width: 2.0, color: Colors.black),
                     ),
-                    color: Color.fromRGBO(182, 229, 195, 1),
+                    splashColor: Colors.greenAccent,
+                    color: Colors.green[300],
                     onPressed: () async {
                       _authService.phoneSignOut(context);
                       Navigator.pushReplacement(context,

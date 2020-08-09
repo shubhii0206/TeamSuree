@@ -23,6 +23,7 @@ class _HomeState1 extends State<Home1> {
 
   final _moneyController = TextEditingController();
   final _locationController = TextEditingController();
+  final _commentsController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   ScrollController _scrollController = new ScrollController();
 
@@ -105,7 +106,7 @@ class _HomeState1 extends State<Home1> {
                   children: <Widget>[
                     Positioned(
                       left: ((MediaQuery.of(context).size.width) - 350) / 2,
-                      top: 70,
+                      top: 35,
                       child: FadeAnimation(
                         1.5,
                         Container(
@@ -207,6 +208,16 @@ class _HomeState1 extends State<Home1> {
                                 SizedBox(height: 20),
                                 InputFormDeco(
                                   keyboardType: TextInputType.multiline,
+                                  maxLines: 2,
+                                  validator: (value) => (value.isEmpty)
+                                      ? 'Enter a Comment'
+                                      : null,
+                                  controller: _commentsController,
+                                  hintText: 'Any Commnets/Specifications',
+                                ),
+                                SizedBox(height: 20),
+                                InputFormDeco(
+                                  keyboardType: TextInputType.multiline,
                                   maxLines: 3,
                                   validator: (value) => (value.isEmpty)
                                       ? 'Enter a valid Work Area'
@@ -215,49 +226,57 @@ class _HomeState1 extends State<Home1> {
                                   hintText: 'Work Location',
                                 ),
                                 SizedBox(height: 20),
-                                Padding(
-                                  padding: const EdgeInsets.all(4.0),
-                                  child: RaisedButton(
-                                    child: Text('Add Work'),
-                                    color: Colors.green,
-                                    onPressed: () async {
-                                      // DocumentReference ref =
-                                      await firestoreInstance
-                                          .collection('Work')
-                                          .add({
-                                        'Name': _nameController.text,
-                                        'Type': _typeController.text,
-                                        'Number of Workers':
-                                            _numberController.text,
-                                        'Proposed Amount':
-                                            _moneyController.text,
-                                        'Number of days': _daysController.text,
-                                        'Work Location':
-                                            _locationController.text,
-                                        'Hirer id': user.uid,
-                                        'Status': false,
-                                      });
-                                      Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Home()),
-                                      );
-                                    },
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(4.0),
-                                  child: RaisedButton(
-                                      child: Text('Go Back'),
-                                      color: Colors.green,
-                                      onPressed: () {
-                                        Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Home()),
-                                        );
-                                      }),
-                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: RaisedButton(
+                                        child: Text('Add Work'),
+                                        color: Colors.green,
+                                        onPressed: () async {
+                                          // DocumentReference ref =
+                                          await firestoreInstance
+                                              .collection('Work')
+                                              .add({
+                                            'Name': _nameController.text,
+                                            'Type': _typeController.text,
+                                            'Number of Workers':
+                                                _numberController.text,
+                                            'Proposed Amount':
+                                                _moneyController.text,
+                                            'Number of days':
+                                                _daysController.text,
+                                            'Comments':
+                                                _commentsController.text,
+                                            'Work Location':
+                                                _locationController.text,
+                                            'Hirer id': user.uid,
+                                            'Status': false,
+                                          });
+                                          Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => Home()),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                    SizedBox(width: 110),
+                                    Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: RaisedButton(
+                                          child: Text('Go Back'),
+                                          color: Colors.green,
+                                          onPressed: () {
+                                            Navigator.pushReplacement(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) => Home()),
+                                            );
+                                          }),
+                                    ),
+                                  ],
+                                )
                               ],
                             ),
                           ),
